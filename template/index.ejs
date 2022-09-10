@@ -48,33 +48,30 @@
 			</span>
 		</h3>
 		<div id="prog-lang-content">
-			<!-- Yes, I know that tabular layout is not modern but it's effective in my case and actually I'm mostly a backend developer -->
-			<table>
+			<div class="flex-column">
 				<% for (const i in programming_languages) {
 					const item = programming_languages[i];
 					%>
-					<tr>
-						<td>
-							<label class="toggle-label" for="prog-lang-<%= i %>-toggle">
-								<button id="prog-lang-<%= i %>-toggle" class="toggle" data-toggle="prog-lang-<%= i %>-content"></button>
-								<span class="const"><%= item.title %></span>
-							</label>
-						</td>
-						<td class="row-2">
-							<label class="toggle-label" for="prog-lang-<%= i %>-toggle">
-								<span class="comment">// <%= item.experience %></span>
-							</label>
-						</td>
-					</tr>
-					<tr>
-						<td id="prog-lang-<%= i %>-content" colspan="2">
+					<div class="flex-column">
+						<label class="toggle-label" for="prog-lang-<%= i %>-toggle">
+							<div class="flex-row">
+								<div class="prog-lang-title">
+									<button id="prog-lang-<%= i %>-toggle" class="toggle" data-toggle="prog-lang-<%= i %>-content"></button>
+									<span class="const"><%= item.title %></span>
+								</div>
+								<div>
+									<span class="comment">// <%= item.experience %></span>
+								</div>
+							</div>
+						</label>
+						<div id="prog-lang-<%= i %>-content">
 							<p class="indentation">
 								projects where lang is used......
 							</p>
-						</td>
-					</tr>
+						</div>
+					</div>
 				<% } %>
-			</table>
+			</div>
 		</div>
 
 		<h3 id="skills">
