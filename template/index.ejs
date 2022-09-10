@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="./css/styles.css">
+	<title><%= name %>, CV</title>
+</head>
+<body>
+	<header>
+		<h1>&lt;cv&gt;</h1>
+		<h2 class="identifier"><%= name %></h2>
+		<h3 class="const"><%= title %></h3>
+	</header>
+
+	<main>
+		<h3 id="summary">
+			<a href="#summary">#</a>
+			<span class="keyword">
+				<label class="toggle-label" for="summary-toggle">summary</label><button id="summary-toggle" class="toggle" data-toggle="summary-content" data-opened="true"></button>
+			</span>
+		</h3>
+		<p id="summary-content" class="indentation"><%= summary %></p>
+
+		<h3 id="contacts">
+			<a href="#contacts">#</a>
+			<span class="keyword">
+				<label class="toggle-label" for="contacts-toggle">contacts</label><button id="contacts-toggle" class="toggle" data-toggle="contacts-content" data-opened="true"></button>
+			</span>
+		</h3>
+		<ul id="contacts-content">
+			<% for (const item of contacts) { %>
+				<li>
+					<% if (item.type === 'email') { %>
+						E-mail: <a target="_blank" href="mailto:<%= item.value %>"><%= item.value %></a>
+					<% } else if (item.type === 'website') { %>
+						<a target="_blank" href="<%= item.value %>"><%= item.value %></a>
+					<% } %>
+				</li>
+			<% } %>
+		</ul>
+
+		<h3 id="programming">
+			<a href="#programming">#</a>
+			<span class="keyword">
+				<label class="toggle-label" for="prog-lang-toggle">programming languages</label><button id="prog-lang-toggle" class="toggle" data-toggle="prog-lang-content" data-opened="true"></button>
+			</span>
+		</h3>
+		<div id="prog-lang-content">
+			<!-- Yes, I know that tabular layout is not modern but it's effective in my case and actually I'm mostly a backend developer -->
+			<table>
+				<% for (const i in programming_languages) {
+					const item = programming_languages[i];
+					%>
+					<tr>
+						<td>
+							<label class="toggle-label" for="prog-lang-<%= i %>-toggle">
+								<button id="prog-lang-<%= i %>-toggle" class="toggle" data-toggle="prog-lang-<%= i %>-content"></button>
+								<span class="const"><%= item.title %></span>
+							</label>
+						</td>
+						<td class="row-2">
+							<label class="toggle-label" for="prog-lang-<%= i %>-toggle">
+								<span class="comment">// <%= item.experience %></span>
+							</label>
+						</td>
+					</tr>
+					<tr>
+						<td id="prog-lang-<%= i %>-content" colspan="2">
+							<p class="indentation">
+								projects where lang is used......
+							</p>
+						</td>
+					</tr>
+				<% } %>
+			</table>
+		</div>
+
+		<h3 id="skills">
+			<a href="#skills">#</a>
+			<span class="keyword">
+				<label class="toggle-label" for="skills-toggle">skills</label><button id="skills-toggle" class="toggle" data-toggle="skills-content" data-opened="true"></button>
+			</span>
+		</h3>
+		<ul id="skills-content">
+			<% for (const item of skills) { %>
+				<li>
+					<strong><%= item.title %></strong>:
+					<%= item.description %>
+					<% if (item.examples) { %>
+						<% for (const example of item.examples) { %>
+							<a target="_blank" href="<%= example.url %>"><%= example.title %></a>
+						<% } %>
+					<% } %>
+				</li>
+			<% } %>
+		</ul>
+
+		<h3 id="experience">
+			<a href="#experience">#</a>
+			<span class="keyword">
+				<label class="toggle-label" for="experience-toggle">experience</label><button id="experience-toggle" class="toggle" data-toggle="experience-content" data-opened="true"></button>
+			</span>
+		</h3>
+		<ul id="experience-content">
+			<li>...</li>
+		</ul>
+
+		<h3 id="projects">
+			<a href="#projects">#</a>
+			<span class="keyword">
+				<label class="toggle-label" for="projects-toggle">projects</label><button id="projects-toggle" class="toggle" data-toggle="projects-content" data-opened="true"></button>
+			</span>
+		</h3>
+		<ul id="projects-content">
+			<li>...</li>
+		</ul>
+	</main>
+
+	<footer>
+		<h3 id="notes">
+			<a href="#notes">#</a>
+			<span class="keyword">
+				<label class="toggle-label" for="notes-toggle">notes</label><button id="notes-toggle" class="toggle" data-toggle="notes-content" data-opened="true"></button>
+			</span>
+		</h3>
+		<p id="notes-content" class="indentation">
+			Source code of this page can be found
+			<a target="_blank" href="<%= cv_page_source %>">on GitHub</a>
+		</p>
+	</footer>
+	<script src="./js/main.js"></script>
+</body>
+</html>

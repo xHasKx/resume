@@ -1,0 +1,91 @@
+@font-face{
+	font-family: 'JetBrainsMono';
+	src: url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2') format('woff2'),
+	  url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/web/woff/JetBrainsMono-Regular.woff') format('woff'),
+	  url('https://cdn.jsdelivr.net/gh/JetBrains/JetBrainsMono/ttf/JetBrainsMono-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+}
+
+body {
+	font-family: 'JetBrainsMono';
+	padding: 10px;
+}
+h1, h2, h3, li {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 10px;
+}
+h3 {
+	margin: 20px 0;
+}
+ul {
+	padding-left: 20px;
+	margin: 0;
+	/* list-style: none; */
+}
+/* li::marker {
+	content: '⇒';
+} */
+/* ul li:before {
+	content: '⇒';
+	margin: 0 1em;
+	font: bolder;
+} */
+
+table, tbody, th, tr, td {
+	margin: 0;
+	padding: 0;
+}
+
+td.row-2 {
+	margin-left: 40px;
+}
+
+.container-left-right {
+	display: flex;
+	justify-content: space-between;
+}
+
+.indentation {
+	padding-left: 20px;
+}
+
+.keyword, .keyword > .toggle {
+	color: #af00db;
+}
+.const {
+	color: #0000ff;
+}
+.comment {
+	color: #008000;
+}
+.variable {
+	color: #0070c1;
+}
+.definition {
+	color: #795e26;
+}
+.string {
+	color: #a31515;
+}
+.number {
+	color: #098658;
+}
+.boolean {
+	color: #0000ff;
+}
+.identifier {
+	color: #001080;
+}
+
+.toggle {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	width: 15px;
+	padding: 0;
+}
+.toggle-label {
+	cursor: pointer;
+}
