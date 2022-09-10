@@ -9,10 +9,14 @@ summary: |
   I'm a Software Engineer with wide experience in the Software Development, architect and Linux administration.
 
 contacts:
-  - type: email
-    value: xhaskx@gmail.com
-  - type: website
-    value: https://xhaskx.github.io/
+  - email: xhaskx@gmail.com
+  - title: Telegram
+    url: https://t.me/xHasKx
+  - title: LinkedIn
+    url: https://www.linkedin.com/in/alexander-kiranov/
+  - title: GitHub
+    url: https://github.com/xhaskx
+  - url: https://xhaskx.github.io/
 
 programming_languages:
   - title: C

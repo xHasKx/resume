@@ -32,10 +32,12 @@
 					<ul id="contacts-content" class="info-section">
 						<% for (const item of contacts) { %>
 							<li>
-								<% if (item.type === 'email') { %>
-									E-mail: <a target="_blank" href="mailto:<%= item.value %>"><%= item.value %></a>
-								<% } else if (item.type === 'website') { %>
-									<a target="_blank" href="<%= item.value %>"><%= item.value %></a>
+								<% if (item.email) { %>
+									<strong>E-mail</strong>: <a target="_blank" href="mailto:<%= item.email %>"><%= item.email %></a>
+								<% } else if (item.title) { %>
+									<a target="_blank" href="<%= item.url %>"><%= item.title %></a>
+								<% } else { %>
+									<a target="_blank" href="<%= item.url %>"><%= item.url %></a>
 								<% } %>
 							</li>
 						<% } %>
@@ -202,7 +204,7 @@
 					Implementation was inspired by the <a target="_blank" href="https://jsonresume.org/">jsonresume.org</a> project.
 				</p>
 				<p>
-					Build date: <%= new Date().toISOString() %>
+					Page built: <%= new Date().toGMTString() %>
 				</p>
 			</div>
 		</footer>
