@@ -25,7 +25,7 @@ ul {
 }
 
 .indentation {
-	padding-left: 20px;
+	padding-left: 25px;
 }
 
 .keyword, .keyword > .toggle {
@@ -52,7 +52,7 @@ ul {
 .boolean {
 	color: #0000ff;
 }
-.identifier {
+.property {
 	color: #001080;
 }
 
@@ -79,4 +79,12 @@ ul {
 
 .prog-lang-title {
 	min-width: 150px;
+}
+
+.prog-lang, .project {
+	margin-bottom: 10px;
+}
+
+img {
+	width: 300px;
 }

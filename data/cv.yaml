@@ -1,5 +1,9 @@
 name: Alexander Kiranov
+photo: image.jpg
 title: Software Engineer
+languages:
+  - English (B2)
+  - Russian (native)
 
 summary: |
   I'm a Software Engineer with wide experience in the Software Development, architect and Linux administration.
@@ -13,11 +17,12 @@ contacts:
 programming_languages:
   - title: C
     experience: 2014 ... now
+    description: |
+      Mostly using for the flespi platform
   - title: Lua
     experience: 2014 ... now
-    examples: # TODO: projects
-      - title: luamqtt
-        url: https://github.com/xHasKx/luamqtt
+    description: |
+      Mostly using for the flespi platform
   - title: Python
     experience: 2010 ... now
     examples:
@@ -25,7 +30,7 @@ programming_languages:
         description: Asynchronous TCP/UDP sender/receiver tool (like netcat) with GUI on Tk
         url: https://github.com/xHasKx/AsyncSender
   - title: JavaScript
-    experience: 2009 ... now
+    experience: 2010 ... now
   - title: Bash
     experience: 2010 ... now
     examples:
@@ -42,9 +47,9 @@ programming_languages:
   - title: C++
     experience: 2011 ... 2014
   - title: Delphi
-    experience: 2006 ... 2014
+    experience: 2004 ... 2011
   - title: Assembly
-    experience: 2014 ... now
+    experience: 2014 ... 2014
     examples:
       - title: luaffifb pull-requests
         url: https://github.com/facebookarchive/luaffifb/pulls?q=is%3Apr+author%3A%40me+is%3Aclosed
@@ -53,6 +58,9 @@ skills:
   - title: Backend Software Development
     description: |
       Experienced in the backend software development using programming languages
+  - title: System Programming
+    description: |
+      Wide understanding of the Linux OS kernel work with network and processes to create effective backend applications
   - title: Software Architecture
     description: |
       Architecting software from scratch
@@ -60,6 +68,8 @@ skills:
   - title: Linux server administration
     description: |
       Install and setup Linux OS (Debian-based mostly) on the bare-metal servers
+  - title: Git
+    description: Confident git user. Moved entire company from svn to git in ~2013
   - title: GitHub Actions
     description: |
       Setup GitHub actions to automatically build
@@ -69,11 +79,17 @@ skills:
         url: https://github.com/xHasKx/luamqtt/blob/master/.github/workflows/tests-and-coverage.yml
 
 projects:
+  - title: flespi
+    description: |
+      SaaS platform for developers of the telematics and IoT solutions
+    url: https://flespi.com/
+    languages: [Lua, C, Bash, JavaScript, TypeScript]
+    i_did: TODO
   - title: luamqtt
     description: Pure-lua MQTT v3.1.1 and v5.0 client
-    i_did: Developed that library from scratch
     url: https://github.com/xHasKx/luamqtt
     languages: [Lua]
+    i_did: Developed that library from scratch
     years: [2018, now]
     skills: [Software Development, Software Architecture]
   - title: PVM
@@ -89,6 +105,7 @@ projects:
     description: |
       Viewer for the PVM trace dump files. Use demo.json as an example to see it in action
     i_did: Developed it from scratch
+    languages: [TypeScript]
     url: https://github.com/flespi-software/pvm-trace-viewer
     years: [2021, 2022]
 
