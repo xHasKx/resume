@@ -9,192 +9,204 @@
 	<title><%= name %>, CV</title>
 </head>
 <body>
-	<header>
-		<h1>&lt;cv&gt;</h1>
-		<h2 class="property">
-			<%= name %>
-			<% if (photo) { %>
-				<img src="<%= photo %>" alt="photo">
-			<% } %>
-		</h2>
-		<h3 class="const"><%= title %></h3>
+	<div class="page">
+		<header>
+			<h1>&lt;cv&gt;</h1>
+			<h2 class="property">
+				<%= name %>
+			</h2>
+			<h3 class="const"><%= title %></h3>
 
-		<h3 id="contacts">
-			<a href="#contacts">#</a>
-			<span class="keyword">
-				<label class="toggle-label" for="contacts-toggle">contacts</label><button id="contacts-toggle" class="toggle" data-toggle="contacts-content" data-opened="true"></button>
-			</span>
-		</h3>
-		<ul id="contacts-content">
-			<% for (const item of contacts) { %>
-				<li>
-					<% if (item.type === 'email') { %>
-						E-mail: <a target="_blank" href="mailto:<%= item.value %>"><%= item.value %></a>
-					<% } else if (item.type === 'website') { %>
-						<a target="_blank" href="<%= item.value %>"><%= item.value %></a>
+			<div class="flex-wrap">
+				<div id="photo" class="flex-column info-section">
+					<img src="<%= photo %>" alt="photo">
+				</div>
+
+				<div class="flex-column second-column">
+					<h3 id="contacts">
+						<a href="#contacts">#</a>
+						<span class="keyword">
+							<label class="toggle-label" for="contacts-toggle">contacts</label><button id="contacts-toggle" class="toggle" data-toggle="contacts-content" data-opened="true"></button>
+						</span>
+					</h3>
+					<ul id="contacts-content" class="info-section">
+						<% for (const item of contacts) { %>
+							<li>
+								<% if (item.type === 'email') { %>
+									E-mail: <a target="_blank" href="mailto:<%= item.value %>"><%= item.value %></a>
+								<% } else if (item.type === 'website') { %>
+									<a target="_blank" href="<%= item.value %>"><%= item.value %></a>
+								<% } %>
+							</li>
+						<% } %>
+					</ul>
+
+					<h3 id="languages">
+						<a href="#languages">#</a>
+						<span class="keyword">
+							<label class="toggle-label" for="languages-toggle">languages</label><button id="languages-toggle" class="toggle" data-toggle="languages-content" data-opened="true"></button>
+						</span>
+					</h3>
+					<ul id="languages-content" class="info-section">
+						<% for (const item of languages) { %>
+							<li><%= item %></li>
+						<% } %>
+					</ul>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<h3 id="summary">
+				<a href="#summary">#</a>
+				<span class="keyword">
+					<label class="toggle-label" for="summary-toggle">summary</label><button id="summary-toggle" class="toggle" data-toggle="summary-content" data-opened="true"></button>
+				</span>
+			</h3>
+			<p id="summary-content" class="indentation info-section"><%= summary %></p>
+
+			<h3 id="programming">
+				<a href="#programming">#</a>
+				<span class="keyword">
+					<label class="toggle-label" for="prog-lang-toggle">programming languages</label><button id="prog-lang-toggle" class="toggle" data-toggle="prog-lang-content" data-opened="true"></button>
+				</span>
+			</h3>
+			<div id="prog-lang-content" class="info-section">
+				<div class="flex-column">
+					<% for (const i in programming_languages) {
+						const item = programming_languages[i];
+						%>
+						<div id="<%= item.id %>" class="flex-column prog-lang">
+							<label class="toggle-label" for="prog-lang-<%= i %>-toggle">
+								<div class="flex-row">
+									<div class="prog-lang-title">
+										<button id="prog-lang-<%= i %>-toggle" class="toggle" data-toggle="prog-lang-<%= i %>-content"></button>
+										<span class="const"><%= item.title %></span>
+									</div>
+									<div>
+										<span class="comment">// <%= item.experience %></span>
+									</div>
+								</div>
+							</label>
+							<div id="prog-lang-<%= i %>-content">
+								<% if (item.description) { %>
+									<p class="indentation">
+										<%= item.description %>
+									</p>
+								<% } %>
+								<% if (item.projects.length) { %>
+									<p class="indentation">
+										<strong>Projects:</strong>
+										<%_ for (const j in item.projects) {
+											const proj = item.projects[j];
+											_%>
+											<%_ if (j > 0) { _%>, <% } _%>
+											<a href="#<%= proj.id %>"><%= proj.title %></a><%_ } _%>
+									</p>
+								<% } %>
+							</div>
+						</div>
 					<% } %>
-				</li>
-			<% } %>
-		</ul>
-	</header>
+				</div>
+			</div>
 
-	<main>
-		<h3 id="summary">
-			<a href="#summary">#</a>
-			<span class="keyword">
-				<label class="toggle-label" for="summary-toggle">summary</label><button id="summary-toggle" class="toggle" data-toggle="summary-content" data-opened="true"></button>
-			</span>
-		</h3>
-		<p id="summary-content" class="indentation"><%= summary %></p>
+			<h3 id="skills">
+				<a href="#skills">#</a>
+				<span class="keyword">
+					<label class="toggle-label" for="skills-toggle">skills</label><button id="skills-toggle" class="toggle" data-toggle="skills-content" data-opened="true"></button>
+				</span>
+			</h3>
+			<ul id="skills-content" class="info-section">
+				<% for (const item of skills) { %>
+					<li>
+						<strong><%= item.title %></strong>:
+						<%= item.description %>
+						<% if (item.examples) { %>
+							<% for (const example of item.examples) { %>
+								<a target="_blank" href="<%= example.url %>"><%= example.title %></a>
+							<% } %>
+						<% } %>
+					</li>
+				<% } %>
+			</ul>
 
-		<h3 id="languages">
-			<a href="#languages">#</a>
-			<span class="keyword">
-				<label class="toggle-label" for="languages-toggle">languages</label><button id="languages-toggle" class="toggle" data-toggle="languages-content" data-opened="true"></button>
-			</span>
-		</h3>
-		<ul id="languages-content">
-			<% for (const item of languages) { %>
-				<li><%= item %></li>
-			<% } %>
-		</ul>
+			<h3 id="experience">
+				<a href="#experience">#</a>
+				<span class="keyword">
+					<label class="toggle-label" for="experience-toggle">experience</label><button id="experience-toggle" class="toggle" data-toggle="experience-content" data-opened="true"></button>
+				</span>
+			</h3>
+			<ul id="experience-content" class="info-section">
+				<li>...</li>
+			</ul>
 
-		<h3 id="programming">
-			<a href="#programming">#</a>
-			<span class="keyword">
-				<label class="toggle-label" for="prog-lang-toggle">programming languages</label><button id="prog-lang-toggle" class="toggle" data-toggle="prog-lang-content" data-opened="true"></button>
-			</span>
-		</h3>
-		<div id="prog-lang-content">
-			<div class="flex-column">
-				<% for (const i in programming_languages) {
-					const item = programming_languages[i];
-					%>
-					<div id="<%= item.id %>" class="flex-column prog-lang">
-						<label class="toggle-label" for="prog-lang-<%= i %>-toggle">
-							<div class="flex-row">
-								<div class="prog-lang-title">
-									<button id="prog-lang-<%= i %>-toggle" class="toggle" data-toggle="prog-lang-<%= i %>-content"></button>
+			<h3 id="projects">
+				<a href="#projects">#</a>
+				<span class="keyword">
+					<label class="toggle-label" for="projects-toggle">projects</label><button id="projects-toggle" class="toggle" data-toggle="projects-content" data-opened="true"></button>
+				</span>
+			</h3>
+			<div id="projects-content" class="info-section">
+				<div>
+					<% for (const i in projects) {
+						const item = projects[i];
+						%>
+						<div class="project" id="<%= item.id %>">
+							<label class="toggle-label" for="project-<%= i %>-toggle">
+								<div>
+									<button id="project-<%= i %>-toggle" class="toggle" data-toggle="project-<%= i %>-content"></button>
 									<span class="const"><%= item.title %></span>
 								</div>
-								<div>
-									<span class="comment">// <%= item.experience %></span>
+								<div class="indentation">
+									<div>
+										<span class="comment">// <%= item.description %></span>
+									</div>
+									<a target="_blank" href="<%= item.url %>"><%= item.url %></a>
 								</div>
+							</label>
+							<div id="project-<%= i %>-content">
+								<% if (item.i_did) { %>
+									<p class="indentation">
+										<strong>What I did:</strong>
+										<%= item.i_did %>
+									</p>
+								<% } %>
+								<% if (item.languages.length) { %>
+									<p class="indentation">
+										<strong>Languages:</strong>
+										<%_ for (const j in item.languages) {
+											const lang = item.languages[j];
+											_%>
+											<%_ if (j > 0) { _%>, <% } _%>
+											<a href="#<%= lang.id %>"><%= lang.title %></a><%_ } _%>
+									</p>
+								<% } %>
 							</div>
-						</label>
-						<div id="prog-lang-<%= i %>-content">
-							<% if (item.description) { %>
-								<p class="indentation">
-									<%= item.description %>
-								</p>
-							<% } %>
-							<% if (item.projects.length) { %>
-								<p class="indentation">
-									<strong>Projects:</strong>
-									<%_ for (const j in item.projects) {
-										const proj = item.projects[j];
-										_%>
-										<%_ if (j > 0) { _%>, <% } _%>
-										<a href="#<%= proj.id %>"><%= proj.title %></a><%_ } _%>
-								</p>
-							<% } %>
 						</div>
-					</div>
-				<% } %>
-			</div>
-		</div>
-
-		<h3 id="skills">
-			<a href="#skills">#</a>
-			<span class="keyword">
-				<label class="toggle-label" for="skills-toggle">skills</label><button id="skills-toggle" class="toggle" data-toggle="skills-content" data-opened="true"></button>
-			</span>
-		</h3>
-		<ul id="skills-content">
-			<% for (const item of skills) { %>
-				<li>
-					<strong><%= item.title %></strong>:
-					<%= item.description %>
-					<% if (item.examples) { %>
-						<% for (const example of item.examples) { %>
-							<a target="_blank" href="<%= example.url %>"><%= example.title %></a>
-						<% } %>
 					<% } %>
-				</li>
-			<% } %>
-		</ul>
-
-		<h3 id="experience">
-			<a href="#experience">#</a>
-			<span class="keyword">
-				<label class="toggle-label" for="experience-toggle">experience</label><button id="experience-toggle" class="toggle" data-toggle="experience-content" data-opened="true"></button>
-			</span>
-		</h3>
-		<ul id="experience-content">
-			<li>...</li>
-		</ul>
-
-		<h3 id="projects">
-			<a href="#projects">#</a>
-			<span class="keyword">
-				<label class="toggle-label" for="projects-toggle">projects</label><button id="projects-toggle" class="toggle" data-toggle="projects-content" data-opened="true"></button>
-			</span>
-		</h3>
-		<div id="projects-content">
-			<div>
-				<% for (const i in projects) {
-					const item = projects[i];
-					%>
-					<div class="project" id="<%= item.id %>">
-						<label class="toggle-label" for="project-<%= i %>-toggle">
-							<div>
-								<button id="project-<%= i %>-toggle" class="toggle" data-toggle="project-<%= i %>-content"></button>
-								<span class="const"><%= item.title %></span>
-							</div>
-							<div class="indentation">
-								<div>
-									<span class="comment">// <%= item.description %></span>
-								</div>
-								<a target="_blank" href="<%= item.url %>"><%= item.url %></a>
-							</div>
-						</label>
-						<div id="project-<%= i %>-content">
-							<% if (item.i_did) { %>
-								<p class="indentation">
-									<strong>What I did:</strong>
-									<%= item.i_did %>
-								</p>
-							<% } %>
-							<% if (item.languages.length) { %>
-								<p class="indentation">
-									<strong>Languages:</strong>
-									<%_ for (const j in item.languages) {
-										const lang = item.languages[j];
-										_%>
-										<%_ if (j > 0) { _%>, <% } _%>
-										<a href="#<%= lang.id %>"><%= lang.title %></a><%_ } _%>
-								</p>
-							<% } %>
-						</div>
-					</div>
-				<% } %>
+				</div>
 			</div>
-		</div>
-	</main>
+		</main>
 
-	<footer>
-		<h3 id="notes">
-			<a href="#notes">#</a>
-			<span class="keyword">
-				<label class="toggle-label" for="notes-toggle">notes</label><button id="notes-toggle" class="toggle" data-toggle="notes-content"></button>
-			</span>
-		</h3>
-		<p id="notes-content" class="indentation">
-			Source code of this page can be found
-			<a target="_blank" href="<%= cv_page_source %>">on GitHub</a>.
-			Implementation was inspired by the <a target="_blank" href="https://jsonresume.org/">jsonresume.org</a> project, but implementation is completely custom
-		</p>
-	</footer>
+		<footer>
+			<h3 id="notes">
+				<a href="#notes">#</a>
+				<span class="keyword">
+					<label class="toggle-label" for="notes-toggle">notes</label><button id="notes-toggle" class="toggle" data-toggle="notes-content"></button>
+				</span>
+			</h3>
+			<div id="notes-content" class="indentation info-section">
+				<p>
+					Source code of this page can be found
+					<a target="_blank" href="<%= cv_page_source %>">on GitHub</a>.
+					Implementation was inspired by the <a target="_blank" href="https://jsonresume.org/">jsonresume.org</a> project.
+				</p>
+				<p>
+					Build date: <%= new Date().toISOString() %>
+				</p>
+			</div>
+		</footer>
+	</div>
 	<script src="./js/main.js"></script>
 </body>
 </html>

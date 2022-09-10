@@ -17,11 +17,20 @@ h1, h2, h3, li {
 	margin-bottom: 10px;
 }
 h3 {
-	margin: 20px 0;
+	margin: 0 0 20px 0;
 }
 ul {
 	padding-left: 20px;
 	margin: 0;
+}
+
+.page {
+	width: 1000px;
+	margin: auto;
+}
+
+.info-section {
+	margin-bottom: 20px;
 }
 
 .indentation {
@@ -67,6 +76,11 @@ ul {
 	cursor: pointer;
 }
 
+.flex-wrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 .flex-column {
 	display: flex;
 	flex-direction: column;
@@ -75,6 +89,10 @@ ul {
 .flex-row {
 	display: flex;
 	flex-direction: row;
+}
+
+.second-column {
+	margin-left: 50px;
 }
 
 .prog-lang-title {
@@ -86,5 +104,22 @@ ul {
 }
 
 img {
-	width: 300px;
+	max-width: 400px;
+}
+
+@media only screen and (max-width: 768px) {
+	.page {
+		width: 100%;
+	}
+	#photo {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	.second-column {
+		margin-left: 0;
+	}
+	img {
+		max-width: 100%;
+	}
 }
