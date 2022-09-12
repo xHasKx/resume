@@ -68,8 +68,8 @@
 			</h3>
 			<p id="summary-content" class="indentation info-section"><%= summary %></p>
 
-			<h3 id="programming">
-				<a href="#programming">#</a>
+			<h3 id="programming-languages">
+				<a href="#programming-languages">#</a>
 				<span class="keyword">
 					<label class="toggle-label" for="prog-lang-toggle">programming languages</label><button id="prog-lang-toggle" class="toggle" data-toggle="prog-lang-content" data-opened="true"></button>
 				</span>
@@ -79,7 +79,7 @@
 					<% for (const i in programming_languages) {
 						const item = programming_languages[i];
 						%>
-						<div id="<%= item.id %>" class="flex-column prog-lang">
+						<div id="<%= item.id %>" class="flex-column collapsible">
 							<label class="toggle-label" for="prog-lang-<%= i %>-toggle">
 								<div class="flex-row">
 									<div class="prog-lang-title">
@@ -133,14 +133,46 @@
 				<% } %>
 			</ul>
 
-			<h3 id="experience">
-				<a href="#experience">#</a>
+			<h3 id="work-experience">
+				<a href="#work-experience">#</a>
 				<span class="keyword">
-					<label class="toggle-label" for="experience-toggle">experience</label><button id="experience-toggle" class="toggle" data-toggle="experience-content" data-opened="true"></button>
+					<label class="toggle-label" for="work-experience-toggle">work experience</label><button id="work-experience-toggle" class="toggle" data-toggle="work-experience-content" data-opened="true"></button>
 				</span>
 			</h3>
-			<ul id="experience-content" class="info-section">
-				<li>...</li>
+			<ul id="work-experience-content" class="info-section">
+				<div class="collapsible">
+					[expand all]
+				</div>
+				<div class="flex-column">
+					<% for (const i in work_experience) { // TODO: order
+						const item = work_experience[i];
+						%>
+						<div id="<%= item.id %>" class="collapsible">
+							<div class="flex-row flex-wrap">
+								<div class="wexp-years">
+									<span class="comment"><%= item.years[0] %> - <%= item.years[1] %></span>
+								</div>
+								<div class="wexp-company">
+									at&nbsp;
+									<span class="property">
+										<a target="_blank" href="<%= item.company_url %>"><%= item.company %></a>
+									</span>
+								</div>
+								<div class="wexp-position">
+									<span class="const"><%= item.position %></span>
+								</div>
+							</div>
+							<div>
+								<button id="<%= item.id %>-toggle" class="toggle" data-toggle="<%= item.id %>-content" data-opened="true"></button> <label class="toggle-label" for="<%= item.id %>-toggle"><strong>Project</strong>:</label>
+								<a target="_blank" href="<%= item.project_url %>"><%= item.project %></a>
+								<div id="<%= item.id %>-content">
+									<%= item.description %>
+									<!-- TODO: i_did, languages, achievements -->
+								</div>
+							</div>
+						</div>
+					<% } %>
+				</div>
 			</ul>
 
 			<h3 id="projects">
@@ -150,44 +182,42 @@
 				</span>
 			</h3>
 			<div id="projects-content" class="info-section">
-				<div>
-					<% for (const i in projects) {
-						const item = projects[i];
-						%>
-						<div class="project" id="<%= item.id %>">
-							<label class="toggle-label" for="project-<%= i %>-toggle">
-								<div>
-									<button id="project-<%= i %>-toggle" class="toggle" data-toggle="project-<%= i %>-content"></button>
-									<span class="const"><%= item.title %></span>
-								</div>
-								<div class="indentation">
-									<div>
-										<span class="comment">// <%= item.description %></span>
-									</div>
-									<a target="_blank" href="<%= item.url %>"><%= item.url %></a>
-								</div>
-							</label>
-							<div id="project-<%= i %>-content">
-								<% if (item.i_did) { %>
-									<p class="indentation">
-										<strong>What I did:</strong>
-										<%= item.i_did %>
-									</p>
-								<% } %>
-								<% if (item.languages.length) { %>
-									<p class="indentation">
-										<strong>Languages:</strong>
-										<%_ for (const j in item.languages) {
-											const lang = item.languages[j];
-											_%>
-											<%_ if (j > 0) { _%>, <% } _%>
-											<a href="#<%= lang.id %>"><%= lang.title %></a><%_ } _%>
-									</p>
-								<% } %>
+				<% for (const i in projects) {
+					const item = projects[i];
+					%>
+					<div class="collapsible" id="<%= item.id %>">
+						<label class="toggle-label" for="project-<%= i %>-toggle">
+							<div>
+								<button id="project-<%= i %>-toggle" class="toggle" data-toggle="project-<%= i %>-content"></button>
+								<span class="const"><%= item.title %></span>
 							</div>
+							<div class="indentation">
+								<div>
+									<span class="comment">// <%= item.description %></span>
+								</div>
+								<a target="_blank" href="<%= item.url %>"><%= item.url %></a>
+							</div>
+						</label>
+						<div id="project-<%= i %>-content">
+							<% if (item.i_did) { %>
+								<p class="indentation">
+									<strong>What I did:</strong>
+									<%= item.i_did %>
+								</p>
+							<% } %>
+							<% if (item.languages.length) { %>
+								<p class="indentation">
+									<strong>Languages:</strong>
+									<%_ for (const j in item.languages) {
+										const lang = item.languages[j];
+										_%>
+										<%_ if (j > 0) { _%>, <% } _%>
+										<a href="#<%= lang.id %>"><%= lang.title %></a><%_ } _%>
+								</p>
+							<% } %>
 						</div>
-					<% } %>
-				</div>
+					</div>
+				<% } %>
 			</div>
 		</main>
 

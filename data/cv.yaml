@@ -20,40 +20,40 @@ contacts:
 
 programming_languages:
   - title: C
-    experience: 2014 ... now
+    experience: 2014 - now
     description: |
       Mostly using for the flespi platform
   - title: Lua
-    experience: 2014 ... now
+    experience: 2014 - now
     description: |
       Mostly using for the flespi platform
   - title: Python
-    experience: 2010 ... now
+    experience: 2010 - now
     examples:
       - title: AsyncSender
         description: Asynchronous TCP/UDP sender/receiver tool (like netcat) with GUI on Tk
         url: https://github.com/xHasKx/AsyncSender
   - title: JavaScript
-    experience: 2010 ... now
+    experience: 2010 - now
   - title: Bash
-    experience: 2010 ... now
+    experience: 2010 - now
     examples:
       - TODO
   - title: TypeScript
-    experience: 2019 ... now
+    experience: 2019 - now
   - title: C#
-    experience: 2008 ... 2014
+    experience: 2008 - 2014
     examples:
       - title: WialonIPSEmulator
         url:
   - title: TCL
-    experience: 2011 ... 2014
+    experience: 2011 - 2014
   - title: C++
-    experience: 2011 ... 2014
+    experience: 2011 - 2014
   - title: Delphi
-    experience: 2004 ... 2011
+    experience: 2004 - 2011
   - title: Assembly
-    experience: 2014 ... 2014
+    experience: 2014 - 2014
     examples:
       - title: luaffifb pull-requests
         url: https://github.com/facebookarchive/luaffifb/pulls?q=is%3Apr+author%3A%40me+is%3Aclosed
@@ -72,6 +72,9 @@ skills:
   - title: Linux server administration
     description: |
       Install and setup Linux OS (Debian-based mostly) on the bare-metal servers
+  - title: PostgreSQL database administration
+    description: |
+      Setup of the high-available PostgreSQL database cluster on several servers with automatic failover with Pacemaker
   - title: Git
     description: Confident git user. Moved entire company from svn to git in ~2013
   - title: GitHub Actions
@@ -82,6 +85,85 @@ skills:
       - title: luamqtt project
         url: https://github.com/xHasKx/luamqtt/blob/master/.github/workflows/tests-and-coverage.yml
 
+work_experience:
+  - company: TelecomVist
+    position: Fullstack Developer
+    project: Company services website
+    company_url: http://globalhome.su/
+    project_url: http://globalhome.su/
+    years: [2010, 2011]
+    description: |
+      TelecomVist was a Russian IP telephony provider based on the FreeSWITCH and Asterisk IP calls software.
+    i_did:
+      - Backend development of the company services site on Python 2.6 and Django
+      - Frontend development of the company services site with cross-browser layout and JavaScript
+      - PostgreSQL database administration
+      - Backend development to control IP telephony services of the company
+    languages: [Python, JavaScript]
+    achievements: TODO
+
+  - company: Gurtam
+    position: Hardware Script Developer
+    project: Wialon Hardware Parsing Scripts
+    company_url: https://gurtam.com/
+    project_url: https://wialon.com/
+    years: [2011, 2015]
+    description: |
+      Gurtam is a developer of the GPS tracking system Wialon
+    i_did:
+      - Development of the TCL scripts to parse TCP/UDP traffic from the GPS trackers and other telematics devices
+      - Development of the internal company services to help in the hardware parsing scripts development
+      - Backend development of the site https://gurtam.com/ using TCL
+    languages: [TCL, JavaScript]
+    achievements: TODO
+
+  - company: Gurtam
+    position: C++ Developer
+    project: Wialon Core
+    company_url: https://gurtam.com/
+    project_url: https://wialon.com/
+    years: [2013, 2016]
+    description: |
+      Gurtam is a developer of the GPS tracking system Wialon
+    i_did:
+      - Wialon core development using C++ and TCL
+      - Wialon components upgrade and deploy system using Bash, TCL and JavaScript
+    languages: [C++, TCL, Bash, JavaScript]
+    achievements: TODO
+
+  - company: Gurtam
+    position: Backend Developer
+    project: Internal Services for Wialon
+    company_url: https://gurtam.com/
+    project_url: https://wialon.com/
+    years: [2013, 2017]
+    description: |
+      Gurtam is a developer of the GPS tracking system Wialon
+    i_did:
+      - Development of the internal license control service for the on-premise Wialon Pro and Wialon Local installations
+      - Development of the internal billing services for on-premise and SaaS Wialon solutions
+      - Created an updates delivery system for the Wialon Local on-premise installations
+      - REST API development for other internal company services
+    languages: [TCL, Bash, JavaScript, C++, Python]
+    achievements: TODO
+
+  - company: Gurtam
+    position: Lead Software Engineer
+    project: flespi
+    company_url: https://gurtam.com/
+    project_url: https://flespi.com/
+    years: [2015, now]
+    description: |
+      flespi is a SaaS backend platform to connect GPS trackers or other IoT devices to any software
+    i_did:
+      - Participated in the architecture and development of the flespi platform from scratch
+      - Created PVM - domain-specific programming language, runtime and tools for it, to effectively communicate with GPS trackers and IoT devices
+      - Administration of the platform deployment on the bare-metal servers in the datacenter in the Netherlands
+      - Setup platform high-availability using Pacemaker for the PostgreSQL custers
+      - Setup platform health monitoring using Zabbix and Grafana
+    languages: [Lua, C, Bash, JavaScript, TypeScript]
+    achievements: TODO
+
 projects:
   - title: flespi
     description: |
@@ -89,13 +171,6 @@ projects:
     url: https://flespi.com/
     languages: [Lua, C, Bash, JavaScript, TypeScript]
     i_did: TODO
-  - title: luamqtt
-    description: Pure-lua MQTT v3.1.1 and v5.0 client
-    url: https://github.com/xHasKx/luamqtt
-    languages: [Lua]
-    i_did: Developed that library from scratch
-    years: [2018, now]
-    skills: [Software Development, Software Architecture]
   - title: PVM
     description: Domain-specific programming language
     i_did: |
@@ -105,6 +180,13 @@ projects:
     years: [2014, now]
     languages: [Lua, C]
     skills: [Software Development, Software Architecture, Programming Language Design]
+  - title: luamqtt
+    description: Pure-lua MQTT v3.1.1 and v5.0 client
+    url: https://github.com/xHasKx/luamqtt
+    languages: [Lua]
+    i_did: Developed that library from scratch
+    years: [2018, now]
+    skills: [Software Development, Software Architecture]
   - title: PVM trace dump viewer
     description: |
       Viewer for the PVM trace dump files. Use demo.json as an example to see it in action
@@ -112,5 +194,8 @@ projects:
     languages: [TypeScript]
     url: https://github.com/flespi-software/pvm-trace-viewer
     years: [2021, 2022]
+  # - title: pvmlang
+  # - title: Wialon
+  # - title: bulk devices creation tool
 
 cv_page_source: https://github.com/xHasKx/xhaskx.github.io
