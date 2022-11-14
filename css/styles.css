@@ -95,7 +95,14 @@ ul {
 	margin-left: 50px;
 }
 
-.prog-lang-title {
+.expand-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	margin-bottom: 10px;
+}
+
+.technology-title {
 	min-width: 150px;
 }
 
@@ -121,6 +128,9 @@ img {
 	display: flex;
 }
 
+.url-break {
+	word-break: break-all;
+}
 
 @media only screen and (max-width: 768px) {
 	.page {

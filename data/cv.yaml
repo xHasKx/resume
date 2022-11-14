@@ -2,11 +2,19 @@ name: Alexander Kiranov
 photo: images/photo.jpg
 title: Software Engineer
 languages:
-  - English (B2)
+  - English (B1-B2)
   - Russian (native)
+  - Belarusian
 
 summary: |
-  I'm a Software Engineer with wide experience in the Software Development, architect and Linux administration.
+  I'm a Software Engineer with extended experience in the Software Development, Highload Systems Development and Linux Administration.
+  I'm interested in new technologies. Most of the listed below I studied myself and applied on my current work place.
+
+long-summary: |
+  TODO
+
+goal: |
+  TODO
 
 contacts:
   - email: xhaskx@gmail.com
@@ -18,34 +26,36 @@ contacts:
     url: https://github.com/xhaskx
   - url: https://xhaskx.github.io/
 
-programming_languages:
+technologies:
   - title: C
     experience: 2014 - now
     description: |
       Mostly using for the flespi platform
+    level: High # TODO
   - title: Lua
     experience: 2014 - now
     description: |
-      Mostly using for the flespi platform
+      For the flespi platform,
+      Using Lua Programming Language to extend
+    level: High # TODO
+  - title: PVM
+    experience: 2017 - now
+    description: |
+      Domain-specific language for the flespi platform
+    level: High # TODO
   - title: Python
-    experience: 2010 - now
-    examples:
-      - title: AsyncSender
-        description: Asynchronous TCP/UDP sender/receiver tool (like netcat) with GUI on Tk
-        url: https://github.com/xHasKx/AsyncSender
-  - title: JavaScript
     experience: 2010 - now
   - title: Bash
     experience: 2010 - now
-    examples:
-      - TODO
+  # TODO: NodeJS
+  - title: JavaScript
+    experience: 2010 - now
   - title: TypeScript
+    experience: 2019 - now
+  - title: React
     experience: 2019 - now
   - title: C#
     experience: 2008 - 2014
-    examples:
-      - title: WialonIPSEmulator
-        url:
   - title: TCL
     experience: 2011 - 2014
   - title: C++
@@ -56,25 +66,33 @@ programming_languages:
     experience: 2014 - 2014
     examples:
       - title: luaffifb pull-requests
-        url: https://github.com/facebookarchive/luaffifb/pulls?q=is%3Apr+author%3A%40me+is%3Aclosed
+        url: https://github.com/facebookarchive/luaffifb/pull/17
 
 skills:
   - title: Backend Software Development
     description: |
       Experienced in the backend software development using programming languages
+    projects: [flespi, Wialon]
   - title: System Programming
     description: |
       Wide understanding of the Linux OS kernel work with network and processes to create effective backend applications
+    projects: [flespi, Wialon, luamqtt, WialonIPSEmulator, AsyncSender]
   - title: Software Architecture
     description: |
       Architecting software from scratch
-    projects: [luamqtt]
+    projects: [luamqtt, flespi, WialonIPSEmulator, AsyncSender]
+  - title: Highload Systems Development
+    description: |
+      Highload Systems Development
+    projects: [flespi, Wialon]
   - title: Linux server administration
     description: |
       Install and setup Linux OS (Debian-based mostly) on the bare-metal servers
+    projects: [flespi, Wialon]
   - title: PostgreSQL database administration
     description: |
       Setup of the high-available PostgreSQL database cluster on several servers with automatic failover with Pacemaker
+    projects: [flespi, Wialon]
   - title: Git
     description: Confident git user. Moved entire company from svn to git in ~2013
   - title: GitHub Actions
@@ -84,6 +102,9 @@ skills:
     examples:
       - title: luamqtt project
         url: https://github.com/xHasKx/luamqtt/blob/master/.github/workflows/tests-and-coverage.yml
+
+education:
+  TODO
 
 work_experience:
   - company: TelecomVist
@@ -99,7 +120,7 @@ work_experience:
       - Frontend development of the company services site with cross-browser layout and JavaScript
       - PostgreSQL database administration
       - Backend development to control IP telephony services of the company
-    languages: [Python, JavaScript]
+    technologies: [Python, JavaScript]
     achievements: TODO
 
   - company: Gurtam
@@ -114,7 +135,7 @@ work_experience:
       - Development of the TCL scripts to parse TCP/UDP traffic from the GPS trackers and other telematics devices
       - Development of the internal company services to help in the hardware parsing scripts development
       - Backend development of the site https://gurtam.com/ using TCL
-    languages: [TCL, JavaScript]
+    technologies: [TCL, JavaScript]
     achievements: TODO
 
   - company: Gurtam
@@ -128,7 +149,7 @@ work_experience:
     i_did:
       - Wialon core development using C++ and TCL
       - Wialon components upgrade and deploy system using Bash, TCL and JavaScript
-    languages: [C++, TCL, Bash, JavaScript]
+    technologies: [C++, TCL, Bash, JavaScript]
     achievements: TODO
 
   - company: Gurtam
@@ -144,7 +165,7 @@ work_experience:
       - Development of the internal billing services for on-premise and SaaS Wialon solutions
       - Created an updates delivery system for the Wialon Local on-premise installations
       - REST API development for other internal company services
-    languages: [TCL, Bash, JavaScript, C++, Python]
+    technologies: [TCL, Bash, JavaScript, C++, Python]
     achievements: TODO
 
   - company: Gurtam
@@ -161,41 +182,59 @@ work_experience:
       - Administration of the platform deployment on the bare-metal servers in the datacenter in the Netherlands
       - Setup platform high-availability using Pacemaker for the PostgreSQL custers
       - Setup platform health monitoring using Zabbix and Grafana
-    languages: [Lua, C, Bash, JavaScript, TypeScript]
+    technologies: [Lua, C, Bash, JavaScript, TypeScript]
     achievements: TODO
 
 projects:
   - title: flespi
-    description: |
-      SaaS platform for developers of the telematics and IoT solutions
+    comment: SaaS platform for developers of the telematics and IoT solutions
     url: https://flespi.com/
-    languages: [Lua, C, Bash, JavaScript, TypeScript]
+    technologies: [Lua, C, Bash, PVM, JavaScript, TypeScript]
     i_did: TODO
   - title: PVM
-    description: Domain-specific programming language
+    comment: Domain-specific programming language
     i_did: |
       Developed programming language, its syntax and runtime from scratch,
       to effectively parse traffic from telematic and IoT devices for the flespi platform
     url: https://flespi.com/blog?tag[]=pvm
     years: [2014, now]
-    languages: [Lua, C]
+    technologies: [Lua, C]
     skills: [Software Development, Software Architecture, Programming Language Design]
   - title: luamqtt
-    description: Pure-lua MQTT v3.1.1 and v5.0 client
+    comment: Pure-lua MQTT v3.1.1 and v5.0 client
     url: https://github.com/xHasKx/luamqtt
-    languages: [Lua]
+    technologies: [Lua]
     i_did: Developed that library from scratch
     years: [2018, now]
     skills: [Software Development, Software Architecture]
   - title: PVM trace dump viewer
-    description: |
-      Viewer for the PVM trace dump files. Use demo.json as an example to see it in action
+    comment: Viewer for the PVM trace dump files. Use demo.json as an example to see it in action
     i_did: Developed it from scratch
-    languages: [TypeScript]
+    technologies: [TypeScript, React]
     url: https://github.com/flespi-software/pvm-trace-viewer
     years: [2021, 2022]
-  # - title: pvmlang
-  # - title: Wialon
-  # - title: bulk devices creation tool
+  - title: PVM plugin sandbox
+    comment: PVM code playground just like JSFiddle or CodePen
+    description: |
+      Just enter PVM source code, enter input JSON message and see resulting message modified with your PVM code.
+    i_did: Developed it from scratch
+    technologies: [TypeScript, React]
+    url: https://github.com/flespi-software/pvm-plugin-sandbox
+    years: [2022, 2022]
+  - title: flespi.io devices bulk creation tool
+    comment: Wizzard-like tool to run in the browser to create devices items in bulk on the flespi platform.
+    technologies: [JavaScript]
+    url: https://github.com/flespi-software/examples/tree/master/devices-creation-tool
+  - title: Wialon
+    comment: The platform for GPS tracking and IoT
+    url: https://wialon.com/
+    technologies: [C++, TCL, Bash, Python]
+  # WialonIPSEmulator # TODO
+  - title: AsyncSender
+    comment: Tk-based UI cross-platform tool for communicating over TCP/UDP in the human-readable form.
+    technologies: [Python]
+    url: https://github.com/xHasKx/AsyncSender
+    i_did: Developed it from scratch
+    years: [2013, 2013]
 
 cv_page_source: https://github.com/xHasKx/xhaskx.github.io

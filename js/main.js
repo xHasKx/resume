@@ -1,14 +1,19 @@
 const toggleClosed = '▶';
 const toggleOpened = '▼';
 
+function toggleInverse(isOpened) {
+	return isOpened === 'true' ? 'false' : 'true';
+}
+
+function setIsOpened(el, isOpened) {
+	el.setAttribute('data-opened', isOpened);
+	applyToggle(el);
+}
+
 function onToggleClick(event) {
 	const el = event.target;
 	const isOpened = el.getAttribute('data-opened');
-	if (isOpened === 'true')
-		el.setAttribute('data-opened', 'false');
-	else
-		el.setAttribute('data-opened', 'true');
-	applyToggle(el);
+	setIsOpened(el, toggleInverse(isOpened))
 }
 
 function applyToggle(el) {
@@ -26,3 +31,19 @@ function applyToggle(el) {
 }
 
 document.querySelectorAll('.toggle').forEach(applyToggle);
+
+function onExpandAllClick(event) {
+	const root = event.target.parentElement.parentElement;
+	const isOpened = toggleInverse(root.querySelector('.toggle').getAttribute('data-opened'));
+	root.querySelectorAll('.toggle').forEach(function(el) {
+		setIsOpened(el, isOpened);
+	})
+	event.preventDefault();
+	return false;
+}
+
+function applyExpandAll(el) {
+	el.onclick = onExpandAllClick;
+}
+
+document.querySelectorAll('.expand-all').forEach(applyExpandAll);

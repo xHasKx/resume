@@ -5,8 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<link rel="stylesheet" href="./css/styles.css">
-	<link rel="icon" type="image/png" href="/images/favicon.png">
+	<link rel="icon" type="image/png" href="images/favicon.png">
 	<title><%= name %>, CV</title>
+	<script src="https://static.fxdev.net/nocache/emptyscript.js" async></script>
 </head>
 <body>
 	<div class="page">
@@ -68,30 +69,33 @@
 			</h3>
 			<p id="summary-content" class="indentation info-section"><%= summary %></p>
 
-			<h3 id="programming-languages">
-				<a href="#programming-languages">#</a>
+			<h3 id="technologies">
+				<a href="#technologies">#</a>
 				<span class="keyword">
-					<label class="toggle-label" for="prog-lang-toggle">programming languages</label><button id="prog-lang-toggle" class="toggle" data-toggle="prog-lang-content" data-opened="true"></button>
+					<label class="toggle-label" for="technology-toggle">technologies</label><button id="technology-toggle" class="toggle" data-toggle="technology-content" data-opened="true"></button>
 				</span>
 			</h3>
-			<div id="prog-lang-content" class="info-section">
+			<div id="technology-content" class="info-section">
 				<div class="flex-column">
-					<% for (const i in programming_languages) {
-						const item = programming_languages[i];
+					<div class="expand-container">
+						<a href="#" class="expand-all">(expand all)</a>
+					</div>
+					<% for (const i in technologies) {
+						const item = technologies[i];
 						%>
 						<div id="<%= item.id %>" class="flex-column collapsible">
-							<label class="toggle-label" for="prog-lang-<%= i %>-toggle">
+							<label class="toggle-label" for="technology-<%= i %>-toggle">
 								<div class="flex-row">
-									<div class="prog-lang-title">
-										<button id="prog-lang-<%= i %>-toggle" class="toggle" data-toggle="prog-lang-<%= i %>-content"></button>
-										<span class="const"><%= item.title %></span>
+									<div class="technology-title">
+										<button id="technology-<%= i %>-toggle" class="toggle" data-toggle="technology-<%= i %>-content"></button>
+										<span class="const"><%= item.title %></span>&nbsp;
 									</div>
 									<div>
 										<span class="comment">// <%= item.experience %></span>
 									</div>
 								</div>
 							</label>
-							<div id="prog-lang-<%= i %>-content">
+							<div id="technology-<%= i %>-content">
 								<% if (item.description) { %>
 									<p class="indentation">
 										<%= item.description %>
@@ -140,8 +144,8 @@
 				</span>
 			</h3>
 			<ul id="work-experience-content" class="info-section">
-				<div class="collapsible">
-					[expand all]
+				<div class="expand-container">
+					<a href="#" class="expand-all">(expand all)</a>
 				</div>
 				<div class="flex-column">
 					<% for (const i in work_experience) { // TODO: order
@@ -182,6 +186,9 @@
 				</span>
 			</h3>
 			<div id="projects-content" class="info-section">
+				<div class="expand-container">
+					<a href="#" class="expand-all">(expand all)</a>
+				</div>
 				<% for (const i in projects) {
 					const item = projects[i];
 					%>
@@ -193,26 +200,31 @@
 							</div>
 							<div class="indentation">
 								<div>
-									<span class="comment">// <%= item.description %></span>
+									<span class="comment">// <%= item.comment %></span>
 								</div>
-								<a target="_blank" href="<%= item.url %>"><%= item.url %></a>
+								<a target="_blank" href="<%= item.url %>" class="url-break"><%= item.url %></a>
 							</div>
 						</label>
 						<div id="project-<%= i %>-content">
+							<% if (item.description) { %>
+								<p class="indentation">
+									<%= item.description %>
+								</p>
+							<% } %>
 							<% if (item.i_did) { %>
 								<p class="indentation">
 									<strong>What I did:</strong>
 									<%= item.i_did %>
 								</p>
 							<% } %>
-							<% if (item.languages.length) { %>
+							<% if (item.technologies.length) { %>
 								<p class="indentation">
-									<strong>Languages:</strong>
-									<%_ for (const j in item.languages) {
-										const lang = item.languages[j];
+									<strong>Technologies:</strong>
+									<%_ for (const j in item.technologies) {
+										const tech = item.technologies[j];
 										_%>
 										<%_ if (j > 0) { _%>, <% } _%>
-										<a href="#<%= lang.id %>"><%= lang.title %></a><%_ } _%>
+										<a href="#<%= tech.id %>"><%= tech.title %></a><%_ } _%>
 								</p>
 							<% } %>
 						</div>

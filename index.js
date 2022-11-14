@@ -19,38 +19,38 @@ async function main() {
 	// parse data from YAML form into js object
 	const cv = parse(cvYaml);
 
-	// extending data with cross-references between projects, work_experience and programming_languages
-	const programming_languages = {};
-	for (const lang of cv.programming_languages) {
-		programming_languages[lang.title] = lang;
-		lang.projects = [];
-		lang.work_experience = [];
-		lang.id = `prog-lang-${makeId(lang.title)}`;
+	// extending data with cross-references between projects, work_experience and technologies
+	const technologies = {};
+	for (const tech of cv.technologies) {
+		technologies[tech.title] = tech;
+		tech.projects = [];
+		tech.work_experience = [];
+		tech.id = `technology-${makeId(tech.title)}`;
 	}
 	for (const proj of cv.projects) {
 		proj.id = `project-${makeId(proj.title)}`;
-		const languages = [];
-		for (const lname of proj.languages) {
-			const lang = programming_languages[lname];
-			if (!lang)
-				throw new Error(`no programming_language by title: ${lname} mentioned in the project ${proj.title}`);
-			lang.projects.push(proj);
-			languages.push(lang);
+		const p_technologies = [];
+		for (const tname of proj.technologies) {
+			const tech = technologies[tname];
+			if (!tech)
+				throw new Error(`no technology by title: ${tname} mentioned in the project ${proj.title}`);
+			tech.projects.push(proj);
+			p_technologies.push(tech);
 		}
-		proj.languages = languages;
+		proj.technologies = p_technologies;
 	}
 	for (const wexp of cv.work_experience) {
 		const id = `${wexp.company}-${wexp.position}`;
 		wexp.id = `wexp-${makeId(id)}`;
-		const languages = [];
-		for (const lname of wexp.languages) {
-			const lang = programming_languages[lname];
-			if (!lang)
-				throw new Error(`no programming_language by title: ${lname} mentioned in the work_experience ${id}`);
-			lang.work_experience.push(wexp);
-			languages.push(lang);
+		const w_technologies = [];
+		for (const tname of wexp.technologies) {
+			const tech = technologies[tname];
+			if (!tech)
+				throw new Error(`no technology by title: ${tname} mentioned in the work_experience ${id}`);
+			tech.work_experience.push(wexp);
+			w_technologies.push(tech);
 		}
-		wexp.languages = languages;
+		wexp.technologies = w_technologies;
 	}
 
 	// sort work_experience to display fresh items at the top
