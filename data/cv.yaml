@@ -7,8 +7,8 @@ languages:
   - Belarusian
 
 summary: |
-  I'm a Software Engineer with extended experience in the Software Development, Highload Systems Development and Linux Administration.
-  I'm interested in new technologies. Most of the listed below I studied myself and applied on my current work place.
+  I'm a Software Engineer with extended experience in Software Development, Highload Systems Development, and Linux Administration.
+  I'm interested in new technologies. Most of the listed below I studied myself and applied at my current workplace.
 
 long-summary: |
   TODO
@@ -71,50 +71,43 @@ technologies:
 skills:
   - title: Backend Software Development
     description: |
-      Experienced in the backend software development using programming languages
-    projects: [flespi, Wialon]
+      Experienced in the backend software development using various programming languages with a focus on the modern SaaS solutions
+  - title: Problem Solving
+    description: |
+      Experienced in business tasks analyzing, identifying sub-tasks and problems, and choosing a best way to solve or mitigate them
   - title: System Programming
     description: |
-      Wide understanding of the Linux OS kernel work with network and processes to create effective backend applications
-    projects: [flespi, Wialon, luamqtt, WialonIPSEmulator, AsyncSender]
+      Good understanding of the Linux OS kernel work with network, filesystem, processes, and virtualization to create effective backend applications
   - title: Software Architecture
     description: |
-      Architecting software from scratch
-    projects: [luamqtt, flespi, WialonIPSEmulator, AsyncSender]
+      Architecting simple and complex solutions from scratch
   - title: Highload Systems Development
     description: |
-      Highload Systems Development
-    projects: [flespi, Wialon]
+      Design and development of the highload systems with microservices architecture
+  - title: Frontend Software Development
+    description: |
+      Experienced in the frontend development from times of the browser-wars up to the modern frontend frameworks
   - title: Linux server administration
     description: |
-      Install and setup Linux OS (Debian-based mostly) on the bare-metal servers
-    projects: [flespi, Wialon]
+      Install, setup and maintain VPS and bare-metal servers with Linux OS (Debian-based mostly)
   - title: PostgreSQL database administration
     description: |
-      Setup of the high-available PostgreSQL database cluster on several servers with automatic failover with Pacemaker
-    projects: [flespi, Wialon]
+      Setup of the high-available PostgreSQL database clusters on several servers with automatic failover with Pacemaker
   - title: Git
-    description: Confident git user. Moved entire company from svn to git in ~2013
-  - title: GitHub Actions
-    description: |
-      Setup GitHub actions to automatically build
-    projects: [luamqtt]
-    examples:
-      - title: luamqtt project
-        url: https://github.com/xHasKx/luamqtt/blob/master/.github/workflows/tests-and-coverage.yml
+    description: Confident git user. Migrated entire company from svn to git in ~2013
 
 education:
-  TODO
+  - title: Bachelor's in Computer Science
+    year: 2015
+    at: BSUIR (Belarusian State University of Informatics and Radioelectronics)
 
 work_experience:
   - company: TelecomVist
     position: Fullstack Developer
     project: Company services website
-    company_url: http://globalhome.su/
-    project_url: http://globalhome.su/
     years: [2010, 2011]
     description: |
-      TelecomVist was a Russian IP telephony provider based on the FreeSWITCH and Asterisk IP calls software.
+      TelecomVist was an IP telephony provider based on the FreeSWITCH and Asterisk IP calls software
     i_did:
       - Backend development of the company services site on Python 2.6 and Django
       - Frontend development of the company services site with cross-browser layout and JavaScript
@@ -229,7 +222,14 @@ projects:
     comment: The platform for GPS tracking and IoT
     url: https://wialon.com/
     technologies: [C++, TCL, Bash, Python]
-  # WialonIPSEmulator # TODO
+  - title: WialonIPSEmulator
+    comment: Desktop application in C# designed to emulate Wialon IPS telematics protocol
+    url: https://github.com/xHasKx/WialonIPSEmulator
+    technologies: [C#]
+  - title: http-server-in-bash
+    comment: HTTP server can be written even in Bash
+    url: https://github.com/xHasKx/http-server-in-bash
+    technologies: [Bash]
   - title: AsyncSender
     comment: Tk-based UI cross-platform tool for communicating over TCP/UDP in the human-readable form.
     technologies: [Python]

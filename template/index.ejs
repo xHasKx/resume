@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-FYC4G7HEPP"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-FYC4G7HEPP');
+	</script>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -126,13 +134,28 @@
 			<ul id="skills-content" class="info-section">
 				<% for (const item of skills) { %>
 					<li>
-						<strong><%= item.title %></strong>:
-						<%= item.description %>
-						<% if (item.examples) { %>
-							<% for (const example of item.examples) { %>
-								<a target="_blank" href="<%= example.url %>"><%= example.title %></a>
-							<% } %>
+						<% if (item.description) { %>
+							<strong><%= item.title %></strong>:
+							<%= item.description %>
+						<% } else { %>
+							<strong><%= item.title %></strong>
 						<% } %>
+					</li>
+				<% } %>
+			</ul>
+
+			<h3 id="education">
+				<a href="#education">#</a>
+				<span class="keyword">
+					<label class="toggle-label" for="education-toggle">education</label><button id="education-toggle" class="toggle" data-toggle="education-content" data-opened="true"></button>
+				</span>
+			</h3>
+			<ul id="education-content" class="info-section">
+				<% for (const item of education) { %>
+					<li>
+						<strong><%= item.title %></strong>,
+						<span class="comment"><%= item.year %></span>
+						at <%= item.at %>
 					</li>
 				<% } %>
 			</ul>
@@ -159,7 +182,11 @@
 								<div class="wexp-company">
 									at&nbsp;
 									<span class="property">
-										<a target="_blank" href="<%= item.company_url %>"><%= item.company %></a>
+										<% if (item.company_url) { %>
+											<a target="_blank" href="<%= item.company_url %>"><%= item.company %></a>
+										<% } else { %>
+											<%= item.company %>
+										<% } %>
 									</span>
 								</div>
 								<div class="wexp-position">
@@ -168,7 +195,11 @@
 							</div>
 							<div>
 								<button id="<%= item.id %>-toggle" class="toggle" data-toggle="<%= item.id %>-content" data-opened="true"></button> <label class="toggle-label" for="<%= item.id %>-toggle"><strong>Project</strong>:</label>
-								<a target="_blank" href="<%= item.project_url %>"><%= item.project %></a>
+								<% if (item.project_url) { %>
+									<a target="_blank" href="<%= item.project_url %>"><%= item.project %></a>
+								<% } else { %>
+									<%= item.project %>
+								<% } %>
 								<div id="<%= item.id %>-content">
 									<%= item.description %>
 									<!-- TODO: i_did, languages, achievements -->
