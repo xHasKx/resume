@@ -1,6 +1,7 @@
 import { parse } from 'yaml';
 import { readFile, writeFile } from 'fs/promises';
 import { renderFile } from 'ejs';
+import { markdown } from 'markdown';
 
 function makeId(str) {
 	return str.toLowerCase().replace(/\s/g, '-').replace(/\W/g, '_');
@@ -55,6 +56,9 @@ async function main() {
 
 	// sort work_experience to display fresh items at the top
 	cv.work_experience.sort(compareWorkExperience);
+
+	// to render markdown in the template
+	cv.markdown = markdown.toHTML;
 
 	// render html
 	const html = await renderFile('./template/index.ejs', cv, {});

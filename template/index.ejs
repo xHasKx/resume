@@ -75,7 +75,15 @@
 					<label class="toggle-label" for="summary-toggle">summary</label><button id="summary-toggle" class="toggle" data-toggle="summary-content" data-opened="true"></button>
 				</span>
 			</h3>
-			<p id="summary-content" class="indentation info-section"><%= summary %></p>
+			<div id="summary-content" class="indentation info-section"><%- markdown(summary) %></div>
+
+			<h3 id="history">
+				<a href="#history">#</a>
+				<span class="keyword">
+					<label class="toggle-label" for="history-toggle">history (long read)</label><button id="history-toggle" class="toggle" data-toggle="history-content"></button>
+				</span>
+			</h3>
+			<div id="history-content" class="indentation info-section"><%- markdown(history) %></div>
 
 			<h3 id="technologies">
 				<a href="#technologies">#</a>
@@ -140,22 +148,6 @@
 						<% } else { %>
 							<strong><%= item.title %></strong>
 						<% } %>
-					</li>
-				<% } %>
-			</ul>
-
-			<h3 id="education">
-				<a href="#education">#</a>
-				<span class="keyword">
-					<label class="toggle-label" for="education-toggle">education</label><button id="education-toggle" class="toggle" data-toggle="education-content" data-opened="true"></button>
-				</span>
-			</h3>
-			<ul id="education-content" class="info-section">
-				<% for (const item of education) { %>
-					<li>
-						<strong><%= item.title %></strong>,
-						<span class="comment"><%= item.year %></span>
-						at <%= item.at %>
 					</li>
 				<% } %>
 			</ul>
@@ -262,6 +254,22 @@
 					</div>
 				<% } %>
 			</div>
+
+			<h3 id="education">
+				<a href="#education">#</a>
+				<span class="keyword">
+					<label class="toggle-label" for="education-toggle">education</label><button id="education-toggle" class="toggle" data-toggle="education-content" data-opened="true"></button>
+				</span>
+			</h3>
+			<ul id="education-content" class="info-section">
+				<% for (const item of education) { %>
+					<li>
+						<strong><%= item.title %></strong>,
+						<span class="comment"><%= item.year %></span>
+						at <%= item.at %>
+					</li>
+				<% } %>
+			</ul>
 		</main>
 
 		<footer>
